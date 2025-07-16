@@ -1,3 +1,32 @@
+  const ongoingCourses = [
+    {
+      id: "adc-evl",
+      abbreviation: "ADC(EVL)",
+      code: "ECDC0211",
+      name: "Analog and Digital Communication",
+      type: "Theory",
+      hoursVenue: "3 Hours",
+      semester: "B.Tech-ECE-3B",
+    },
+    {
+      id: "dcniot-lab",
+      abbreviation: "DCNIoT-Lab",
+      code: "ECDC0335",
+      name: "Data Communication Networks and IoT Lab",
+      type: "Laboratory",
+      hoursVenue: "Communication Sys Lab",
+      semester: "B.Tech-ECE-5",
+    },
+    {
+      id: "amc",
+      abbreviation: "AMC",
+      code: "ECPC-405",
+      name: "Advanced Mobile Communication",
+      type: "Theory",
+      hoursVenue: "LT-102",
+      semester: "B.Tech-ECE-7",
+    },
+  ];
 import { HiAcademicCap, HiBookOpen, HiUsers, HiLightBulb, HiDesktopComputer, HiClock } from 'react-icons/hi';
 
 export default function Courses() {
@@ -62,6 +91,44 @@ export default function Courses() {
             Comprehensive curriculum in electronics and communication engineering with focus on modern technologies
           </p>
         </div>
+
+        {/* Currently Ongoing Courses Section */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-semibold mb-4">Currently Ongoing Courses</h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full border border-gray-200 rounded-lg">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="px-4 py-2">Abbreviation</th>
+                  <th className="px-4 py-2">Subject Code</th>
+                  <th className="px-4 py-2">Subject Name</th>
+                  <th className="px-4 py-2">Subject Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ongoingCourses.map((course) => (
+                  <tr
+                    key={course.id}
+                    className="hover:bg-gray-50 cursor-pointer transition"
+                  >
+                    <td className="px-4 py-2 font-medium">
+                      <a href={`/courses/${course.id}`}>{course.abbreviation}</a>
+                    </td>
+                    <td className="px-4 py-2">
+                      <a href={`/courses/${course.id}`}>{course.code}</a>
+                    </td>
+                    <td className="px-4 py-2">
+                      <a href={`/courses/${course.id}`}>{course.name}</a>
+                    </td>
+                    <td className="px-4 py-2">
+                      <a href={`/courses/${course.id}`}>{course.type}</a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
 
         {/* Teaching Philosophy */}
         <section className="mb-16">
